@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const students = require('./students')
+//const students = require('./students')
 
 const studentInfo = [
   { 
@@ -29,20 +29,21 @@ const studentInfo = [
 router.get('/:id', (req, res) => {
   const studentId = parseInt(req.params.id)
   console.log(req.params)
-  const student = students.studentInfo.find(student => students.studentInfo.id === studentId)
+  const student = studentInfo.find(student => studentInfo.id === studentId)
   
   res.json(students.grades)
 })
 
 
-router.post('/:id/:grades', (req, res) => {
+router.post('/', (req, res) => {
  //   res.send('SUCCESS: you added '+req.params.id +'Grades: '+req.params.grades)
     const grade = req.body
-    if (!grade.studentId)
-    res.status(422).send(() => {
+    if (!grade.studentId){
+      res.status(422).send(() => {
 
-      return new Error('please include student ID in your request')
-    })
+        return new Error('please include student ID in your request')
+      })
+    }
     res.status(201).json(grade)
   })
 

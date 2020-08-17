@@ -27,7 +27,8 @@ router.get('/', (req, res) => {
     res.send(orderInfo);
 });
 
-router.post('/:id/:name', (req, res) => {
+//router.post('/:id/:name', (req, res) => {
+    router.post('/', (req, res) => {
     //   res.send('SUCCESS: you added '+req.params.id +'Grades: '+req.params.grades)
 
     const order = req.body
@@ -41,12 +42,12 @@ router.post('/:id/:name', (req, res) => {
     res.status(201).json(order)
 })
 
-router.post('/', (req, res) => {
-    //   res.send('SUCCESS: you added '+req.params.id +'Grades: '+req.params.grades)
+// router.post('/', (req, res) => {
+//     //   res.send('SUCCESS: you added '+req.params.id +'Grades: '+req.params.grades)
 
-   //const order = req.body
+//    //const order = req.body
 
-    res.send('SUCCESS in post')
-})
+//     res.send('SUCCESS in post')
+// })
 
 module.exports = router;
